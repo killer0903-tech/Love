@@ -92,8 +92,21 @@ button{
 
 <script>
   var music = new Audio("tum tak.mp3");   // your uploaded file name
+  function fireworks(){
+  for(let i=0;i<35;i++){
+    let f = document.createElement("div");
+    f.innerText = "✨";
+    f.style.position = "fixed";
+    f.style.left = Math.random()*100 + "vw";
+    f.style.top = Math.random()*100 + "vh";
+    f.style.fontSize = "25px";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1500);
+  }
+  }
 function openMain(){
   music.play();
+  fireworks();
   document.getElementById("page1").classList.add("hidden");
   document.getElementById("page2").classList.remove("hidden");
 }
