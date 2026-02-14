@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Baby 💕</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Comic Sans MS', cursive;
+  background:#ffe6f2;
+  overflow:hidden;
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  bottom:-10px;
+  font-size:20px;
+  animation: float 6s linear infinite;
+  color:#ff4d88;
+}
+@keyframes float{
+  0%{transform:translateY(0); opacity:1;}
+  100%{transform:translateY(-100vh); opacity:0;}
+}
+
+.container{
+  position:relative;
+  z-index:2;
+  width:90%;
+  max-width:400px;
+  background:white;
+  margin:80px auto;
+  border-radius:20px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hidden{ display:none; }
+
+button{
+  background:#ff4d88;
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:20px;
+  font-size:16px;
+  margin:8px;
+}
+
+/* popup */
+.popup{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  text-align:center;
+  z-index:5;
+}
+.popup img{
+  width:200px;
+  border-radius:15px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- music -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<!-- welcome -->
+<div class="container" id="page1">
+  <h1>Hi My Baby 💕</h1>
+  <p>hello bbu 😚</p>
+  <p>I made something special for you 💖</p>
+  <button onclick="openMain()">See My Surprise 💝</button>
+</div>
+
+<!-- main -->
+<div class="container hidden" id="page2">
+  <h2>Choose what you want 😘</h2>
+  <button onclick="hug()">🤗 Hug me</button>
+  <button onclick="kiss()">💋 Kiss me</button>
+  <p style="margin-top:15px;">Forever yours,<br><b>Alok ❤️</b></p>
+</div>
+
+<script>
+function openMain(){
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+}
+
+/* hearts */
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(15+Math.random()*20)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},500);
+
+/* hug */
+function hug(){
+  let div=document.createElement("div");
+  div.className="popup";
+  div.innerHTML="<h2>🤗 Biggest hug for you!</h2><img src='photo1.jpg'>";
+  document.body.appendChild(div);
+  setTimeout(()=>div.remove(),2500);
+}
+
+/* kiss */
+function kiss(){
+  let div=document.createElement("div");
+  div.className="popup";
+  div.innerHTML="<h2>💋 Muuuaah!</h2><img src='photo2.jpg'>";
+  document.body.appendChild(div);
+  setTimeout(()=>div.remove(),2500);
+}
+</script>
+
+</body>
+</html>
