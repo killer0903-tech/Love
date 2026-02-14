@@ -74,11 +74,6 @@ button{
 
 <body>
 
-<!-- music -->
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-</audio>
-
 <!-- welcome -->
 <div class="container" id="page1">
   <h1>Hi My Baby 💕</h1>
@@ -96,7 +91,9 @@ button{
 </div>
 
 <script>
+  var music = new Audio("tum tak.mp3");   // your uploaded file name
 function openMain(){
+  music.play();
   document.getElementById("page1").classList.add("hidden");
   document.getElementById("page2").classList.remove("hidden");
 }
