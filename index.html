@@ -85,6 +85,7 @@ button{
 <!-- main -->
 <div class="container hidden" id="page2">
   <h2>Choose what you want 😘</h2>
+  <h3 id="typeText2"></h3>
   <h3 id="loveTimer" style="color:#ff4d88;"></h3>
   <button onclick="hug()">🤗 Hug me</button>
   <button onclick="kiss()">💋 Kiss me</button>
@@ -111,7 +112,8 @@ function openMain(){
   fireworks();
   document.getElementById("page1").classList.add("hidden");
   document.getElementById("page2").classList.remove("hidden");
-}
+}typing2();
+  }
 
 /* hearts */
 setInterval(()=>{
@@ -151,6 +153,17 @@ function typing(){
   }
 }
 typing();
+  // second page typing
+var msg2 = "You are my life Bbu ❤️";
+var j = 0;
+
+function typing2(){
+   if(j < msg2.length){
+      document.getElementById("typeText2").innerHTML += msg2.charAt(j);
+      j++;
+      setTimeout(typing2, 100);
+   }
+}
   var loveTexts = [
   "You are my everything 💕",
   "I miss you 😚",
