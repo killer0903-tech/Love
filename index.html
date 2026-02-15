@@ -85,6 +85,7 @@ button{
 <!-- main -->
 <div class="container hidden" id="page2">
   <h2>Choose what you want 😘</h2>
+  <h3 id="loveTimer" style="color:#ff4d88;"></h3>
   <button onclick="hug()">🤗 Hug me</button>
   <button onclick="kiss()">💋 Kiss me</button>
   <p style="margin-top:15px;">Forever yours,<br><b>Boondi ka ladoo 😁😚😘 ❤️</b></p>
@@ -92,6 +93,7 @@ button{
 
 <script>
   var music = new Audio("tum tak.mp3");   // your uploaded file name
+  var startDate = new Date("2025-02-07T00:00:00");
   function fireworks(){
   for(let i=0;i<35;i++){
     let f = document.createElement("div");
@@ -138,6 +140,18 @@ function kiss(){
   div.innerHTML="<h2>💋 Muuuaah!</h2><img src='photoss.html.jpg'>";
   document.body.appendChild(div);
   setTimeout(()=>div.remove(),2500);
+  function updateTimer(){
+  var now = new Date();
+  var diff = now - startDate;
+
+  var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  var minutes = Math.floor((diff / (1000 * 60)) % 60);
+  var seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("loveTimer").innerText =
+    "I love you for ❤️ " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+  }setInterval(updateTimer, 1000);
 }
 </script>
 
