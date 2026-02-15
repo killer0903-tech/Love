@@ -76,7 +76,7 @@ button{
 
 <!-- welcome -->
 <div class="container" id="page1">
-  <h1>Hi My Baby 💕</h1>
+  <h1 id="typeText"></h1>
   <p>Hello bbu 😚</p>
   <p> MERA PAYRI BBU KA LIYA 🤗 AB UDAS MT HONA SAMJE 😚😚😘🫂💖</p>
   <button onclick="openMain()">See My Surprise 💝</button>
@@ -140,6 +140,28 @@ function kiss(){
   div.innerHTML="<h2>💋 Muuuaah!</h2><img src='photoss.html.jpg'>";
   document.body.appendChild(div);
   setTimeout(()=>div.remove(),2500);
+  var msg = "Hi Bbu 😚";
+var i = 0;
+
+function typing(){
+  if(i < msg.length){
+    document.getElementById("typeText").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(typing,100);
+  }
+}
+typing();
+  var loveTexts = [
+  "You are my everything 💕",
+  "I miss you 😚",
+  "Forever mine ❤️",
+  "My queen 👑"
+];
+
+setInterval(()=>{
+  let t = loveTexts[Math.floor(Math.random()*loveTexts.length)];
+  document.getElementById("loveTimer").innerText = t;
+},3000);
   function updateTimer(){
   var now = new Date();
   var diff = now - startDate;
